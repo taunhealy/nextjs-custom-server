@@ -1,4 +1,5 @@
 import React from 'react';
+import NextImage from 'next/image';
 import { Block } from 'payload/types';
 import { MediaType } from '../../collections/Media';
 import RichText from '../../components/RichText';
@@ -71,9 +72,10 @@ export const Component: React.FC<Type> = (props) => {
 
     return (
       <div className={`${classes.wrap} ${classes[type]}`}>
-        <img
+        <NextImage
           src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filenameToRender}`}
           alt={image.alt}
+          layout="fill"
         />
         {caption && (
           <RichText
